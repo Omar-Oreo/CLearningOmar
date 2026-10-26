@@ -2,6 +2,21 @@
 #include <string.h>
 #include <math.h>
 
+void CountString(char str[]){
+    char vowels[] = "aiueoAIUEO";
+    int counts[] = {0,0,0,0,0,0,0,0,0,0};
+    for(int i = 0; str[i] != '\0'; i++){
+        for(int j = 0; vowels[j] != '\0'; j++){
+            if(vowels[j] == str[i]){
+                counts[j] = counts[j] + 1;
+            }
+        }
+    }
+    for(int c = 0; c < 5; c++){
+        printf("Amount of %c's in the string: %d\n", vowels[c], counts[c] + counts[c+5]);
+    }
+}
+
 void Quadratic(double a, double b, double c){
     double D;
     printf("The equation is: %gx^2 + %gx + %g\n", a, b, c);
@@ -24,11 +39,14 @@ void Quadratic(double a, double b, double c){
 }
 
 int main(){
-    printf("Welcome. \n");
+    printf("Welcome. \n\n");
     for(;;){
         int Selection;
         printf("Select the thing youd like to do: \n");
+        printf("---====----====---===----====---\n");
         printf("1. The Quadratic Formula Calculator\n");
+        printf("2. String Counter\n");
+        printf("---====----====---===----====---\n");
         printf("Select - ");
         scanf("%d", &Selection);
         switch (Selection){
