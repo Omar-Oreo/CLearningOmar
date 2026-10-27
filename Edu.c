@@ -1,6 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
+#include <stdlib.h>
+    
+void ClearInput(void){
+    int ch;
+    while((ch = getchar()) != '\n' && ch != EOF);
+}
+
+void PressEnter(){
+    printf("Press Enter to continue...");
+    ClearInput();
+}
 
 void CountString(char str[]){
     char vowels[] = "aiueoAIUEO";
@@ -27,14 +38,14 @@ void Quadratic(double a, double b, double c){
     }
     else if(D == 0){
         printf("The D is equal to zero. Therefore, there is one root.\n");
-        int x0 = (-b + sqrt(D)) / (2 * a);
-        printf("That root is %d.", x0);
+        double x0 = (-b + sqrt(D)) / (2 * a);
+        printf("That root is %g.\n", x0);
     }
     else if(D > 0){
         printf("The D is higher than zero, therefore there is two seperate roots.\n");
-        int x1 = (-b + sqrt(D)) / (2 * a);
-        int x2 = (-b - sqrt(D)) / (2 * a);
-        printf("The root with the positive is %d, while the root with the negative is %d.\n", x1, x2);
+        double x1 = (-b + sqrt(D)) / (2 * a);
+        double x2 = (-b - sqrt(D)) / (2 * a);
+        printf("The root with the positive is %g, while the root with the negative is %g.\n", x1, x2);
     }
 }
 
@@ -44,17 +55,31 @@ int main(){
         int Selection;
         printf("Select the thing youd like to do: \n");
         printf("---====----====---===----====---\n");
+        printf("0. Exit.\n");
         printf("1. The Quadratic Formula Calculator\n");
         printf("2. String Counter\n");
         printf("---====----====---===----====---\n");
         printf("Select - ");
         scanf("%d", &Selection);
         switch (Selection){
+            case 0:
+            exit(0);
             case 1:
             double a1,b1,c1;
             printf("Enter a, b and c of your equation: ");
             scanf("%lf %lf %lf", &a1, &b1, &c1);
             Quadratic(a1,b1,c1);
+            break;
+            case 2:
+            char str1[50];
+            printf("Enter a string: ");
+            scanf("%s", str1);
+            ClearInput();
+            CountString(str1);
+            PressEnter();
+            break;
+            default:
+            printf("Please enter a valid option.\n");
         }
     }
 
