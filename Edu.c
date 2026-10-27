@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <stdlib.h>
+#include <ctype.h>
     
 void ClearInput(void){
     int ch;
@@ -28,6 +29,31 @@ void CountString(char str[]){
     }
 }
 
+void CounterCount(int ac, char**av){
+    if(ac == 1){
+        printf("Please add more arguments while running the code.\n");
+    }
+    else{
+    int Digits = 0;
+    int Upper = 0;
+    int Lower = 0;
+    for(char *p = *(av + 1); *p != '\0'; p++){
+        if(isupper(*p)){
+            Upper++;
+        }
+        else if(islower(*p)){
+            Lower++;
+        }
+        else if(isdigit(*p)){
+            Digits++;
+        }
+    }
+    printf("Amount of Digits: %d\n", Digits);
+    printf("Amount of Uppercase letters: %d\n", Upper);
+    printf("Amount of Lowercase letters: %d\n", Lower);
+    }
+}
+
 void Quadratic(double a, double b, double c){
     double D;
     printf("The equation is: %gx^2 + %gx + %g\n", a, b, c);
@@ -49,7 +75,17 @@ void Quadratic(double a, double b, double c){
     }
 }
 
-int main(){
+void Swappping(int a, int b, int c){
+    int temp = 0;
+    printf("Swapping the first integer for the second, the second for the third, and the third for the first.\n");
+    temp = c;
+    c = b;
+    b = a;
+    a = temp;
+    printf("Swapped integers: %d %d %d\n", a, b, c);
+}
+
+int main(int argc, char**argv){
     printf("Welcome. \n\n");
     for(;;){
         int Selection;
@@ -58,6 +94,8 @@ int main(){
         printf("0. Exit.\n");
         printf("1. The Quadratic Formula Calculator\n");
         printf("2. String Counter\n");
+        printf("3. Argument Counter\n");
+        printf("4. Integer swapper\n");
         printf("---====----====---===----====---\n");
         printf("Select - ");
         scanf("%d", &Selection);
@@ -78,6 +116,19 @@ int main(){
             scanf("%s", str1);
             ClearInput();
             CountString(str1);
+            PressEnter();
+            break;
+            case 3:
+            printf("Counting arguments...\n");
+            ClearInput();
+            CounterCount(argc,argv);
+            PressEnter();
+            case 4:
+            int e,f,g;
+            printf("Enter three integers: ");
+            scanf("%d %d %d", &e, &f, &g);
+            ClearInput();
+            Swappping(e,f,g);
             PressEnter();
             break;
             default:
