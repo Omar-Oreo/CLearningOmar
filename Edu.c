@@ -68,7 +68,9 @@ int main(){
             double a1,b1,c1;
             printf("Enter a, b and c of your equation: ");
             scanf("%lf %lf %lf", &a1, &b1, &c1);
+            ClearInput();
             Quadratic(a1,b1,c1);
+            PressEnter();
             break;
             case 2:
             char str1[50];
