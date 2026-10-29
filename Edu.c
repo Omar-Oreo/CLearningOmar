@@ -81,6 +81,7 @@ void BoxesMain(int a, char x){
     printf("1. X'ed box\n");
     printf("2. Hollow Box\n");
     printf("3. Full Square\n");
+    printf("4. Checkerboard Pattern\n");
     printf("Selection - ");
     scanf("%d", &inpt);
     switch(inpt){
@@ -118,10 +119,22 @@ void BoxesMain(int a, char x){
             printf("\n");
         }
         break;
+        case 4:
+        for(int i = 0; i < a; i++){
+            for(int j = 0; j < a; j++){
+                if(i == 0 || j == 0 || i == a - 1 || j == a - 1 || (i + j) % 2 == 0){
+                    printf("%c", x);
+                }
+                else{
+                printf(" ");
+                }
+            }
+            printf("\n");
+        }
     }
 }
 
-void Swappping(int a, int b, int c){
+void Swapping(int a, int b, int c){
     int temp = 0;
     printf("Swapping the first integer for the second, the second for the third, and the third for the first.\n");
     temp = c;
@@ -176,7 +189,7 @@ int main(int argc, char**argv){
                 printf("Enter three integers: ");
                 scanf("%d %d %d", &e, &f, &g);
                 ClearInput();
-                Swappping(e,f,g);
+                Swapping(e,f,g);
                 PressEnter();
             break;
             case 5:
