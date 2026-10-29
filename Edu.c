@@ -75,6 +75,52 @@ void Quadratic(double a, double b, double c){
     }
 }
 
+void BoxesMain(int a, char x){
+    int inpt;
+    printf("Select the type of box youd like to draw: \n");
+    printf("1. X'ed box\n");
+    printf("2. Hollow Box\n");
+    printf("3. Full Square\n");
+    printf("Selection - ");
+    scanf("%d", &inpt);
+    switch(inpt){
+        case 1:
+        for(int i = 0; i < a; i++){
+            for(int j = 0; j < a; j++){
+                if(i == 0 || i + j == a - 1 || j == 0 || i == j || i == a - 1 || j == a - 1){
+                    printf("%c", x);
+                }
+                else{
+                    printf(" ");
+                }
+            }
+            printf("\n");
+        }
+        break;
+        case 2:
+        for(int i = 0; i < a; i++){
+            for(int j = 0; j < a; j++){
+                if(i == 0 || j == 0 || i == a - 1 || j == a - 1){
+                    printf("%c", x);
+                }
+                else{
+                    printf(" ");
+                }
+            }
+            printf("\n");
+        }
+        break;
+        case 3:
+        for(int i = 0; i < a; i++){
+            for(int j = 0; j < a; j++){
+                printf("%c", x);
+            }
+            printf("\n");
+        }
+        break;
+    }
+}
+
 void Swappping(int a, int b, int c){
     int temp = 0;
     printf("Swapping the first integer for the second, the second for the third, and the third for the first.\n");
@@ -96,43 +142,55 @@ int main(int argc, char**argv){
         printf("2. String Counter\n");
         printf("3. Argument Counter\n");
         printf("4. Integer swapper\n");
+        printf("5. Shapes Drawer\n");
         printf("---====----====---===----====---\n");
         printf("Select - ");
         scanf("%d", &Selection);
         switch (Selection){
             case 0:
-            exit(0);
+                exit(0);
             case 1:
-            double a1,b1,c1;
-            printf("Enter a, b and c of your equation: ");
-            scanf("%lf %lf %lf", &a1, &b1, &c1);
-            ClearInput();
-            Quadratic(a1,b1,c1);
-            PressEnter();
+                double a1,b1,c1;
+                printf("Enter a, b and c of your equation: ");
+                scanf("%lf %lf %lf", &a1, &b1, &c1);
+                ClearInput();
+                Quadratic(a1,b1,c1);
+                PressEnter();
             break;
             case 2:
-            char str1[50];
-            printf("Enter a string: ");
-            scanf("%s", str1);
-            ClearInput();
-            CountString(str1);
-            PressEnter();
+                char str1[50];
+                printf("Enter a string: ");
+                scanf("%s", str1);
+                ClearInput();
+                CountString(str1);
+                PressEnter();
             break;
             case 3:
-            printf("Counting arguments...\n");
-            ClearInput();
-            CounterCount(argc,argv);
-            PressEnter();
+                printf("Counting arguments...\n");
+                ClearInput();
+                CounterCount(argc,argv);
+                PressEnter();
+            break;
             case 4:
-            int e,f,g;
-            printf("Enter three integers: ");
-            scanf("%d %d %d", &e, &f, &g);
-            ClearInput();
-            Swappping(e,f,g);
-            PressEnter();
+                int e,f,g;
+                printf("Enter three integers: ");
+                scanf("%d %d %d", &e, &f, &g);
+                ClearInput();
+                Swappping(e,f,g);
+                PressEnter();
+            break;
+            case 5:
+                int size;
+                char Char;
+                printf("Enter the size, and the character youd like to draw: ");
+                scanf("%d %c", &size, &Char);
+                ClearInput();
+                BoxesMain(size,Char);
+                ClearInput();
+                PressEnter();
             break;
             default:
-            printf("Please enter a valid option.\n");
+                printf("Please enter a valid option.\n");
         }
     }
 
