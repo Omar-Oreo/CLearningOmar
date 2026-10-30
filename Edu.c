@@ -75,6 +75,29 @@ void Quadratic(double a, double b, double c){
     }
 }
 
+void TrianglesMain(int a, char x){
+    int inpt;
+    printf("Select the type of triangle youd like to print.\n");
+    printf("1. Right Triangle\n");
+    printf("2. Triangle\n");
+    scanf("%d", &inpt);
+    switch(inpt){
+        case 1:
+        for(int i = 0; i < a; i++){
+            for(int j = 0; j < a; j++){
+                if(j == 0 || j == i || i == a - 1){
+                    printf("%c", x);
+                }
+                else{
+                    printf(" ");
+                }
+            }
+            printf("\n");
+        }
+        break;
+    }
+}
+
 void BoxesMain(int a, char x){
     int inpt;
     printf("Select the type of box youd like to draw: \n");
@@ -131,6 +154,23 @@ void BoxesMain(int a, char x){
             }
             printf("\n");
         }
+    }
+}
+
+void ShapesMenu(int a, char x){
+    int inpt;
+    printf("Welcome to the shapes menu, select a shape to print:\n");
+    printf("1. Square\n");
+    printf("2. Triangle\n");
+    printf("Select - ");
+    scanf("%d", &inpt);
+    switch(inpt){
+        case 1:
+        BoxesMain(a,x);
+        break;
+        case 2:
+        TrianglesMain(a,x);
+        break;
     }
 }
 
@@ -198,7 +238,7 @@ int main(int argc, char**argv){
                 printf("Enter the size, and the character youd like to draw: ");
                 scanf("%d %c", &size, &Char);
                 ClearInput();
-                BoxesMain(size,Char);
+                ShapesMenu(size,Char);
                 ClearInput();
                 PressEnter();
             break;
