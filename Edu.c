@@ -174,14 +174,15 @@ void ShapesMenu(int a, char x){
     }
 }
 
-void Swapping(int a, int b, int c){
+void Swapping(int *a, int *b, int *c){
     int temp = 0;
+    int *tp = &temp;
     printf("Swapping the first integer for the second, the second for the third, and the third for the first.\n");
-    temp = c;
-    c = b;
-    b = a;
-    a = temp;
-    printf("Swapped integers: %d %d %d\n", a, b, c);
+    *tp = *c;
+    *c = *b;
+    *b = *a;
+    *a = *tp;
+    printf("Swapped integers: %d %d %d\n", *a, *b, *c);
 }
 
 int main(int argc, char**argv){
@@ -229,7 +230,7 @@ int main(int argc, char**argv){
                 printf("Enter three integers: ");
                 scanf("%d %d %d", &e, &f, &g);
                 ClearInput();
-                Swapping(e,f,g);
+                Swapping(&e,&f,&g);
                 PressEnter();
             break;
             case 5:
