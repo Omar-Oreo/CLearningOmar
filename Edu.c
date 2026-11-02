@@ -95,6 +95,8 @@ void TrianglesMain(int a, char x){
             printf("\n");
         }
         break;
+        default:
+        printf("Please select a valid option.");
     }
 }
 
@@ -154,6 +156,10 @@ void BoxesMain(int a, char x){
             }
             printf("\n");
         }
+        break;
+        default:
+        printf("Please choose a valid option.");
+        BoxesMain(a,x);
     }
 }
 
@@ -171,6 +177,9 @@ void ShapesMenu(int a, char x){
         case 2:
         TrianglesMain(a,x);
         break;
+        default:
+        printf("Please choose a valid option.");
+        ShapesMenu(a, x);
     }
 }
 
