@@ -54,9 +54,13 @@ void CounterCount(int ac, char**av){
     }
 }
 
-void Quadratic(double a, double b, double c){
+int Quadratic(double a, double b, double c){
     double D;
     printf("The equation is: %gx^2 + %gx + %g\n", a, b, c);
+    if(a == 0){
+        printf("Please put a valid a value.\n");
+        return 0;
+    }
     D = pow(b, 2) - ((double)4 * a * c);
     printf("The D is %g\n", D);
     if(D < 0){
