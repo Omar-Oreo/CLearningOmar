@@ -29,6 +29,11 @@ void CountString(char str[]){
     }
 }
 
+void SeeStringDiff(int x){
+    char strings[x][x];
+    printf("Enter a multitude of strings: ");
+}
+
 void CounterCount(int ac, char**av){
     if(ac == 1){
         printf("Please add more arguments while running the code.\n");
@@ -102,7 +107,7 @@ void TrianglesMain(int a, char x){
         case 2:
         for(int i = 0; i < a; i++){
             for(int s = 0; s < a - i - 1; s++){
-                printf(" ");
+                printfprintf(" ");
             }
             for(int j = 0; j < 2 * i + 1; j++){
                 printf("%c", x);
