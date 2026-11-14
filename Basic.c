@@ -30,8 +30,33 @@ void CountString(char str[]){
 }
 
 void SeeStringDiff(int x){
-    char strings[x][x];
-    printf("Enter a multitude of strings: ");
+    char strings[x][50];
+    int same_count = 0;
+    char samestrings[x][50];
+    for(int i = 0; i < x; i++){
+        printf("Enter a string(one word.): ");
+        scanf("%49s", strings[i]);
+    }
+    for(int n = 0; n < x; n++){
+        for(int j = n + 1; j < x; j++){
+            if (!strcmp(strings[n],strings[j])){
+                int found = 0;
+                for(int k = 0; k < same_count; k++){
+                    if(!strcmp(strings[n], samestrings[k])){
+                        found = 1;
+                        break;
+                    }
+                }
+                if(!found){
+                    strcpy(samestrings[same_count], strings[n]);
+                    same_count++;
+                }
+            }
+        }
+    }
+    printf("There are %d repeated strings.\n", same_count);
+    printf("Matched strings: "); for(int c = 0; c < same_count; c++){printf("%s ", samestrings[c]);}
+    printf("\n");
 }
 
 void CounterCount(int ac, char**av){
@@ -107,7 +132,7 @@ void TrianglesMain(int a, char x){
         case 2:
         for(int i = 0; i < a; i++){
             for(int s = 0; s < a - i - 1; s++){
-                printfprintf(" ");
+                printf(" ");
             }
             for(int j = 0; j < 2 * i + 1; j++){
                 printf("%c", x);
@@ -226,6 +251,7 @@ int main(int argc, char**argv){
         printf("3. Argument Counter\n");
         printf("4. Integer swapper\n");
         printf("5. Shapes Drawer\n");
+        printf("6. Strings checker\n");
         printf("---====----====---===----====---\n");
         printf("Select - ");
         scanf("%d", &Selection);
@@ -272,6 +298,14 @@ int main(int argc, char**argv){
                 ClearInput();
                 PressEnter();
             break;
+            case 6:
+                int x3;
+                printf("Please enter the amount of strings you would like to use:");
+                scanf("%d", &x3);
+                SeeStringDiff(x3);
+                ClearInput();
+                PressEnter();
+                break;
             default:
                 printf("Please enter a valid option.\n");
         }
