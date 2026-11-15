@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "Header_Files/Basic.h"
     
 void ClearInput(void){
     int ch;
@@ -84,12 +85,12 @@ void CounterCount(int ac, char**av){
     }
 }
 
-int Quadratic(double a, double b, double c){
+void Quadratic(double a, double b, double c){
     double D;
     printf("The equation is: %gx^2 + %gx + %g\n", a, b, c);
     if(a == 0){
         printf("Please put a valid a value.\n");
-        return 0;
+        return;
     }
     D = pow(b, 2) - ((double)4 * a * c);
     printf("The D is %g\n", D);
@@ -239,7 +240,7 @@ void Swapping(int *a, int *b, int *c){
     printf("Swapped integers: %d %d %d\n", *a, *b, *c);
 }
 
-int main(int argc, char**argv){
+void basic_main(int argc, char**argv){
     printf("Welcome. \n\n");
     for(;;){
         int Selection;
@@ -257,7 +258,7 @@ int main(int argc, char**argv){
         scanf("%d", &Selection);
         switch (Selection){
             case 0:
-                exit(0);
+                return;
             case 1:
                 double a1,b1,c1;
                 printf("Enter a, b and c of your equation: ");
@@ -310,6 +311,5 @@ int main(int argc, char**argv){
                 printf("Please enter a valid option.\n");
         }
     }
-
-    return 0;
+    return;
 }
