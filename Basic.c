@@ -4,16 +4,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "Header_Files/Basic.h"
-    
-void ClearInput(void){
-    int ch;
-    while((ch = getchar()) != '\n' && ch != EOF);
-}
-
-void PressEnter(){
-    printf("Press Enter to continue...");
-    ClearInput();
-}
+#include "Header_Files/Utils.h"
 
 void CountString(char str[]){
     char vowels[] = "aiueoAIUEO";

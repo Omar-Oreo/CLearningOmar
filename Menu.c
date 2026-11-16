@@ -8,8 +8,8 @@ int main(int argc, char **argv){
     int inpt;
     printf("Welcome to the main menu!\n");
     printf("Run: \n");
-    printf("1 - Basic.c (Beginner level C)");
-    printf("2 - Intermediate (Low level C)");
+    printf("1 - Basic.c (Beginner level C)\n");
+    printf("2 - Intermediate (Low level C)\n");
     scanf("%d", &inpt);
     switch(inpt){
         case 1:
